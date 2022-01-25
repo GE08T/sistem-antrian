@@ -7,7 +7,7 @@ use app\models\search\MenuSearch;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\helpers\Url;
-use dmstr\bootstrap\Tabs;
+// use dmstr\bootstrap\Tabs;
 
 /**
  * MenuController implements the CRUD actions for Menu model.
@@ -35,7 +35,7 @@ class MenuController extends Controller
 		$searchModel  = new MenuSearch;
 		$dataProvider = $searchModel->search($_GET);
 
-		Tabs::clearLocalStorage();
+		// Tabs::clearLocalStorage();
 
         Url::remember();
         \Yii::$app->session['__crudReturnUrl'] = null;
@@ -56,7 +56,7 @@ class MenuController extends Controller
 	{
         \Yii::$app->session['__crudReturnUrl'] = Url::previous();
         Url::remember();
-        Tabs::rememberActiveState();
+        // Tabs::rememberActiveState();
 
         return $this->render('view', [
 			'model' => $this->findModel($id),

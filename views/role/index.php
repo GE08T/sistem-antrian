@@ -24,34 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('<span class="glyphicon glyphicon-plus"></span> ' . 'New', ['create'], ['class' => 'btn btn-success']) ?>
         </p>
 
-        <div class="pull-right">
-
-
-            <?=
-            \yii\bootstrap4\ButtonDropdown::widget(
-                [
-                    'id' => 'giiant-relations',
-                    'encodeLabel' => false,
-                    'label' => '<span class="glyphicon glyphicon-paperclip"></span> ' . 'Relations',
-                    'dropdown' => [
-                        'options' => [
-                            'class' => 'dropdown-menu-right'
-                        ],
-                        'encodeLabels' => false,
-                        'items' => [[
-                            'url' => ['role-menu/index'],
-                            'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . 'Role Menu' . '</i>',
-                        ], [
-                            'url' => ['user/index'],
-                            'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . 'User' . '</i>',
-                        ],]
-                    ],
-                    'options' => [
-                        'class' => 'btn-default'
-                    ]
-                ]
-            );
-            ?>
         </div>
     </div>
 
