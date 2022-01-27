@@ -5,18 +5,18 @@ namespace app\models\base;
 use Yii;
 
 /**
- * This is the base-model class for table "role".
+ * This is the model class for table "role".
  *
- * @property integer $id
+ * @property int $id
  * @property string $name
  *
- * @property \app\models\RoleMenu[] $roleMenus
- * @property \app\models\User[] $users
+ * @property RoleMenu[] $roleMenus
+ * @property User[] $users
  */
 class Role extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -24,18 +24,18 @@ class Role extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
             [['name'], 'required'],
-            [['name'], 'string', 'max' => 50]
+            [['name'], 'string', 'max' => 50],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -46,6 +46,8 @@ class Role extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[RoleMenus]].
+     *
      * @return \yii\db\ActiveQuery
      */
     public function getRoleMenus()
@@ -54,11 +56,12 @@ class Role extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[Users]].
+     *
      * @return \yii\db\ActiveQuery
      */
     public function getUsers()
     {
         return $this->hasMany(\app\models\User::className(), ['role_id' => 'id']);
     }
-
 }

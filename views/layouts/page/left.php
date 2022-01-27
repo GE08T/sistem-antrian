@@ -28,10 +28,34 @@ use yii\helpers\Html;
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
           
+          <li class="nav-item">
+            <?= Html::a('<i class="nav-icon fas fa-tachometer-alt"></i><p> Dashboard</p>', ['site/index'], ['class' => 'nav-link']) ?>
+          </li>
+
+          <li class="nav-item menu-open">
+            <?= Html::a('<i class="nav-icon fas fa-user-cog"></i><p> Master <i class="right fas fa-angle-left"></i></p>', [''], ['class' => 'nav-link']) ?>
+            <ul class="nav nav-treeview" style="display">
+              <li class="nav-item">
+                <?= Html::a('<i class="far fa-circle nav-icon"></i><p> User</p>', [''], ['class' => 'nav-link']) ?>
+              </li>
+
+              <li class="nav-item">
+                <?= Html::a('<i class="far fa-circle nav-icon"></i><p> Menu</p>', [''], ['class' => 'nav-link']) ?>
+              </li>
+
+              <li class="nav-item">
+                <?= Html::a('<i class="far fa-circle nav-icon"></i><p> Role</p>', ['role/index'], ['class' => 'nav-link']) ?>
+              </li>
+            </ul>
+          </li> 
+
+          <li class="nav-item">
+            <?= Html::a('<i class="nav-icon fas fa-cash-register"></i><p> Loket</p>', [''], ['class' => 'nav-link']) ?>
+          </li>
+
         </ul>
-      </nav>
+      <nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

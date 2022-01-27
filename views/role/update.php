@@ -2,24 +2,20 @@
 
 use yii\helpers\Html;
 
-/**
- * @var yii\web\View $this
- * @var app\models\Role $model
- */
+/* @var $this yii\web\View */
+/* @var $model app\models\base\Role */
 
-$this->title = 'Role ' . $model->name . ', ' . 'Edit';
+$this->title = 'Update Role: ' . $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Roles', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => (string)$model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Edit';
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="giiant-crud role-update">
+<div class="role-update">
 
-    <p>
-        <?= Html::a('<span class="glyphicon glyphicon-eye-open"></span> ' . 'View', ['view', 'id' => $model->id], ['class' => 'btn btn-default']) ?>
-    </p>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-	<?php echo $this->render('_form', [
-		'model' => $model,
-	]); ?>
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
 
 </div>
