@@ -23,12 +23,6 @@ class UserPageController extends \yii\web\Controller
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
         ];
     }
     public function actionIndex()
