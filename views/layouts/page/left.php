@@ -30,24 +30,45 @@ use yii\helpers\Html;
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
           <li class="nav-item">
-            <?= Html::a('<i class="nav-icon fas fa-tachometer-alt"></i><p> Dashboard</p>', ['site/index'], ['class' => 'nav-link']) ?>
+            <?= Html::a('<i class="nav-icon fas fa-tachometer-alt"></i><p> Dashboard</p>', ['/site/index'], ['class' => 'nav-link']) ?>
           </li>
-
-          <li class="nav-item menu-open">
-            <?= Html::a('<i class="nav-icon fas fa-user-cog"></i><p> Master <i class="right fas fa-angle-left"></i></p>', [''], ['class' => 'nav-link']) ?>
-            <ul class="nav nav-treeview" style="display">
+          
+        <li class="nav-item menu-is-opening menu-open">
+          <?= Html::a('<i class="nav-icon fas fa-user-cog"></i><p> Master User <i class="fas fa-angle-left right"></i></p>', [''], ['class' => 'nav-link']) ?>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <?= Html::a('<i class="far fa-circle nav-icon"></i><p> User</p>', [''], ['class' => 'nav-link']) ?>
+                <?= Html::a('<i class="nav-icon fas fa-user-edit"></i><p> RBAC User</p>', ['/admin'], ['class' => 'nav-link']) ?> 
               </li>
 
               <li class="nav-item">
-                <?= Html::a('<i class="far fa-circle nav-icon"></i><p> Role</p>', ['role/index'], ['class' => 'nav-link']) ?>
+                <?= Html::a('<i class="nav-icon fas fa-user-plus"></i><p> Tambah User</p>', ['/user/admin/index'], ['class' => 'nav-link']) ?>
               </li>
             </ul>
-          </li> 
+        </li>
+
+        <li class="nav-item menu-is-opening menu-open">
+          <?= Html::a('<i class="nav-icon fas fa-cash-register"></i><p>Master Loket <i class="fas fa-angle-left right"></i></p>', [''], ['class' => 'nav-link']) ?>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <?= Html::a('<i class="nav-icon fas fa-briefcase"></i><p> Kategori Pelayanan</p>', ['kategori-pelayanan/index'], ['class' => 'nav-link']) ?>
+              </li>
+
+              <li class="nav-item">
+                <?= Html::a('<i class="nav-icon fas fa-mail-bulk"></i><p> Daftar Dinas</p>', ['daftar-dinas/index'], ['class' => 'nav-link']) ?>
+              </li>
+
+              <li class="nav-item">
+                <?= Html::a('<i class="nav-icon fas fa-phone"></i><p> Layanan Dinas</p>', ['layanan/index'], ['class' => 'nav-link']) ?>
+              </li>
+            </ul>
+        </li>
 
           <li class="nav-item">
-            <?= Html::a('<i class="nav-icon fas fa-cash-register"></i><p> Loket</p>', [''], ['class' => 'nav-link']) ?>
+            <?= Html::a('<i class="nav-icon fas fa-user-alt"></i><p> Halaman User</p>', ['/user-page'], ['class' => 'nav-link']) ?>
+          </li>
+
+          <li class="nav-item">
+            <?= Html::a('<i class="nav-icon fas fa-user-tie"></i><p> Halaman Karyawan</p>', ['/employee-page'], ['class' => 'nav-link']) ?>
           </li>
 
         </ul>

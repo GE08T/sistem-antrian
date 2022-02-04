@@ -46,16 +46,6 @@ class Role extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[RoleMenus]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRoleMenus()
-    {
-        return $this->hasMany(\app\models\RoleMenu::className(), ['role_id' => 'id']);
-    }
-
-    /**
      * Gets query for [[Users]].
      *
      * @return \yii\db\ActiveQuery

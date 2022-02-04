@@ -31,5 +31,11 @@ class EmployeePageController extends \yii\web\Controller
 
         return $this->render('index');
     }
+    public function actionLoket()
+    {
+        $this->layout = "main-employee";
+
+        return $this->render('loket');
+    }
 
 }

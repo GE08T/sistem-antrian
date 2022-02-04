@@ -9,7 +9,7 @@ $this->title = 'Antri Kuy';
 <div class="employee-page-index">
 
     <div class="text-center">
-        <div class="card card-outline card-primary mx-auto" style="width: 65rem;">
+        <div class="card card-outline card-primary mx-auto">
             <div class="card-body">            
                 <div class="card-header bg-primary">
                     <h3 class="card-text">Dashboard Employee</h3>
@@ -30,10 +30,10 @@ $this->title = 'Antri Kuy';
         </div>
     </div>
 
-    <div class="card my-4 mx-auto" style="width: 65rem;">
+    <div class="card my-4 mx-auto">
     <div class="card-header" style="background-color: white";><h5>Bantuan Cepat</h5></div>
     <div class="card-body">
-        <p class="card-text">Disini adalah tempat karyawan untuk memangakses loket, <br> Klik disini untuk mengakses menu loket untuk memanggil nomor antrian. <?= Html::a('klik disini', [''], ['class' => 'link']) ?></p>
+        <p class="card-text">Disini adalah tempat karyawan untuk memangakses loket, <br> Untuk mengakses menu loket untuk memanggil nomor antrian, <?= Html::a('Klik disini', ['employee-page/loket'], ['class' => 'link']) ?></p>
     </div>
     </div>
 

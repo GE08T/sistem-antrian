@@ -28,6 +28,8 @@ class AdminLteAsset extends AssetBundle
         'adminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css',
         'adminLTE/plugins/daterangepicker/daterangepicker.css',
         'adminLTE/plugins/summernote/summernote-bs4.min.css',
+        'bootstrap-iconpicker/dist/css/bootstrap-iconpicker.css',      
+        'bootstrap-iconpicker/dist/css/bootstrap-iconpicker.min.css',
     ];
     public $js = [
         'adminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js',
@@ -45,6 +47,11 @@ class AdminLteAsset extends AssetBundle
         'adminLTE/dist/js/adminlte.js',
         'adminLTE/dist/js/demo.js',
         'adminLTE/dist/js/pages/dashboard.js',
+        'bootstrap-iconpicker/dist/js/bootstrap-iconpicker-iconset-all.js',
+        'bootstrap-iconpicker/dist/js/bootstrap-iconpicker-iconset-all.min.js',
+        'bootstrap-iconpicker/dist/js/bootstrap-iconpicker.bundle.min.js',
+        'bootstrap-iconpicker/dist/js/bootstrap-iconpicker.js',
+        'bootstrap-iconpicker/dist/js/bootstrap-iconpicker.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

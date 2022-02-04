@@ -7,11 +7,11 @@ use app\widgets\Alert;
 ?>
 
 <div class="content-wrapper">
-    <section class="content-header">
+    <div class="content-header">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-    </section>
+    </div>
 
     <section class="content">
         <?= Alert::widget() ?>

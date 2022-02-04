@@ -48,22 +48,50 @@ return array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii/src',
     ),
   ),
-  'kartik-v/yii2-krajee-base' => 
+  'yiisoft/yii2-bootstrap' => 
   array (
-    'name' => 'kartik-v/yii2-krajee-base',
-    'version' => '3.0.2.0',
+    'name' => 'yiisoft/yii2-bootstrap',
+    'version' => '2.0.11.0',
     'alias' => 
     array (
-      '@kartik/base' => $vendorDir . '/kartik-v/yii2-krajee-base/src',
+      '@yii/bootstrap' => $vendorDir . '/yiisoft/yii2-bootstrap/src',
     ),
   ),
-  'kartik-v/yii2-widget-fileinput' => 
+  'yiisoft/yii2-httpclient' => 
   array (
-    'name' => 'kartik-v/yii2-widget-fileinput',
-    'version' => 'dev-master',
+    'name' => 'yiisoft/yii2-httpclient',
+    'version' => '2.0.14.0',
     'alias' => 
     array (
-      '@kartik/file' => $vendorDir . '/kartik-v/yii2-widget-fileinput/src',
+      '@yii/httpclient' => $vendorDir . '/yiisoft/yii2-httpclient/src',
+    ),
+  ),
+  'yiisoft/yii2-authclient' => 
+  array (
+    'name' => 'yiisoft/yii2-authclient',
+    'version' => '2.2.12.0',
+    'alias' => 
+    array (
+      '@yii/authclient' => $vendorDir . '/yiisoft/yii2-authclient/src',
+    ),
+  ),
+  'dektrium/yii2-user' => 
+  array (
+    'name' => 'dektrium/yii2-user',
+    'version' => '0.9.14.0',
+    'alias' => 
+    array (
+      '@dektrium/user' => $vendorDir . '/dektrium/yii2-user',
+    ),
+    'bootstrap' => 'dektrium\\user\\Bootstrap',
+  ),
+  'mdmsoft/yii2-admin' => 
+  array (
+    'name' => 'mdmsoft/yii2-admin',
+    'version' => '2.12.0.0',
+    'alias' => 
+    array (
+      '@mdm/admin' => $vendorDir . '/mdmsoft/yii2-admin',
     ),
   ),
 );

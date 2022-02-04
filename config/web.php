@@ -12,7 +12,10 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
-
+        //tambahan manager
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
 
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -21,10 +24,12 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
+
+        /*'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
-        ],
+        ],*/
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -56,6 +61,29 @@ $config = [
         
     ],
     'params' => $params,
+    //tambahan extensi login register user
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\module',
+            'enableUnconfirmedLogin' => 'true',
+            'admins' => ['admin'],
+        ],
+        'admin' => [
+            'class' => 'mdm\admin\Module',
+            'layout' => 'left-menu',
+            'mainLayout' => '@app/views/layouts/main.php',
+        ]
+    ],
+    //tambahan akhir modular
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+            '*',
+            'user/security/login',
+            'user/security/logout',
+        ]
+    ],
 ];
 
 if (YII_ENV_DEV) {

@@ -3,17 +3,18 @@
 namespace app\controllers;
 
 use Yii;
-use yii\db\Expression;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\RegisterForm;
-use app\models\User;
 
 class SiteController extends Controller
 {
+    /**
+     * {@inheritdoc}
+     */
     public function behaviors()
     {
         return [
@@ -37,6 +38,9 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function actions()
     {
         return [
@@ -50,57 +54,45 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * Displays homepage.
+     *
+     * @return string
+     */
     public function actionIndex()
     {
         return $this->render('index');
     }
 
+    /**
+     * Login action.
+     *
+     * @return Response|string
+     */
     public function actionLogin()
     {
-        $this->layout = "main-login";
-
-        if (!\Yii::$app->user->isGuest) {
+        if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-
-            $user = Yii::$app->user->identity;
-            $user->last_login = new Expression("NOW()");
-            $user->save();
-
             return $this->goBack();
         }
+
+        $model->password = '';
         return $this->render('login', [
             'model' => $model,
         ]);
     }
-    
-    public function actionRegister()
-    {
-        $this->layout = "main-login";
 
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new RegisterForm();
-        if ($model->load(Yii::$app->request->post()) && $model->register()) {
-            Yii::$app->session->addFlash("success", "Register success, please login");
-            return $this->redirect(["site/login"]);
-        }
-        return $this->render('register', [
-            'model' => $model,
-        ]);
-    }
-
+    /**
+     * Logout action.
+     *
+     * @return Response
+     */
     public function actionLogout()
     {
-        $user = Yii::$app->user->identity;
-        $user->last_logout = new Expression("NOW()");
-        $user->save();
-
         Yii::$app->user->logout();
 
         return $this->goHome();

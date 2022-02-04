@@ -33,6 +33,10 @@ use yii\helpers\Html;
             <?= Html::a('<i class="nav-icon fas fa-tachometer-alt"></i><p> Dashboard</p>', ['employee-page/index'], ['class' => 'nav-link']) ?>
           </li>
 
+          <li class="nav-item">
+            <?= Html::a('<i class="nav-icon fas fa-cash-register"></i><p> Loket</p>', ['employee-page/loket'], ['class' => 'nav-link']) ?>
+          </li>
+
         </ul>
       <nav>
       <!-- /.sidebar-menu -->
