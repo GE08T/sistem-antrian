@@ -64,6 +64,10 @@ use yii\helpers\Html;
         </li>
 
           <li class="nav-item">
+            <?= Html::a('<i class="nav-icon fas fa-sticky-note"></i><p> Antrian</p>', ['master-antrian/kategori'], ['class' => 'nav-link']) ?>
+          </li>
+
+          <li class="nav-item">
             <?= Html::a('<i class="nav-icon fas fa-user-alt"></i><p> Halaman User</p>', ['/user-page'], ['class' => 'nav-link']) ?>
           </li>
 

@@ -4,8 +4,7 @@
 
 use\yii\helpers\Html;
 
-$this->title = 'Antri Kuy';
-?>
+$this->title = 'Antri Kuy';?>
 <div class="site-index">
 
 <div class="container-fluid text-center">

@@ -37,9 +37,9 @@ use app\models\base\kategoriPelayanan;
 
         <div class="row">
             <div class="col-sm-12 col-md-3 col-lg-3">
-                <?= $form->field($model, 'jam_buka_dinas')->timeInput() ?>
+                <?= $form->field($model, 'jam_buka_dinas')->textInput() ?>
             </div>
-            
+
             <div class="col-sm-12 col-md-3 col-lg-3">
                 <?= $form->field($model, 'jam_tutup_dinas')->textInput() ?>
             </div>
@@ -79,12 +79,12 @@ use app\models\base\kategoriPelayanan;
             </div>
 
             <div class="col-sm-12 col-md-6 col-lg-6">
-                <?= $form->field($model, 'fotoFile')->fileInput() ?>
+                <?= $form->field($model, 'foto')->fileInput() ?>
+                
             </div>
         </div>
         
         <span><?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?></span>
 
     <?php ActiveForm::end(); ?>
-
 </div>

@@ -3,6 +3,7 @@
 namespace app\models\base;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "daftar_dinas".
@@ -28,8 +29,6 @@ use Yii;
  */
 class DaftarDinas extends \yii\db\ActiveRecord
 {
-    //untuk menyimpan fotofile
-    public $fotoFile;
     /**
      * {@inheritdoc}
      */
@@ -47,23 +46,17 @@ class DaftarDinas extends \yii\db\ActiveRecord
             [['id_kategori_plyn', 'id_role', 'jam_buka_dinas', 'jam_tutup_dinas', 'nama_dinas', 'no_telp', 'provinsi', 'kabupaten_kota', 'kecamatan', 'desa', 'alamat', 'jam_buka_antrian', 'jam_tutup_antrian'], 'required'],
             [['id_kategori_plyn', 'id_role'], 'integer'],
             [['jam_buka_dinas', 'jam_tutup_dinas', 'jam_buka_antrian', 'jam_tutup_antrian'], 'safe'],
-            [['alamat', 'foto', 'foto_id'], 'string'],
+            [['alamat'], 'string'],
             [['nama_dinas', 'provinsi', 'kabupaten_kota', 'kecamatan', 'desa'], 'string', 'max' => 50],
             [['no_telp'], 'string', 'max' => 15],
+            [['foto'], 'file', 'skipOnEmpty' => true,'extensions' => 'jpg, png, jpeg',],
             [['id_kategori_plyn'], 'exist', 'skipOnError' => true, 'targetClass' => KategoriPelayanan::className(), 'targetAttribute' => ['id_kategori_plyn' => 'id']],
-
-            //tambahan rule profile kantor
-            [['fotoFile'], 'file',
-                'extensions' => 'jpg,png,jpeg', //tipe data
-                'maxSize' => '256000', //size max
-                'skipOnEmpty' => true //boleh nullable
-            ],
         ];
     }
 
     /**
      * {@inheritdoc}
-     */
+     */ 
     public function attributeLabels()
     {
         return [
@@ -79,9 +72,7 @@ class DaftarDinas extends \yii\db\ActiveRecord
             'kecamatan' => 'Kecamatan',
             'desa' => 'Desa',
             'alamat' => 'Alamat',
-            'foto' => 'Foto',
-            'foto_id' => 'Foto Id',
-            'fotoFile' => 'Profile Kantor',
+            'foto' => 'Gambar',
             'jam_buka_antrian' => 'Jam Buka Antrian',
             'jam_tutup_antrian' => 'Jam Tutup Antrian',
         ];
@@ -105,5 +96,15 @@ class DaftarDinas extends \yii\db\ActiveRecord
     public function getLayanans()
     {
         return $this->hasMany(Layanan::className(), ['id_dinas' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Assignment]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAssignment()
+    {
+        return $this->hasOne(Assignment::className(), ['item_name' => 'username']);
     }
 }

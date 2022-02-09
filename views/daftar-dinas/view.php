@@ -31,7 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     'kecamatan',
                     'desa',
                     'alamat:ntext',
-                    'foto',
+                    [
+                        'label'=>'foto',
+                        'format'=>'raw',
+                        'value'=> Html::img(Yii::$app->request->baseUrl.'/upload/'.$model->foto,['width'=>'100px']),
+                    ],
                     'jam_buka_antrian',
                     'jam_tutup_antrian',
                 ],

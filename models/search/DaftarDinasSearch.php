@@ -74,8 +74,7 @@ class DaftarDinasSearch extends DaftarDinas
             ->andFilterWhere(['like', 'kecamatan', $this->kecamatan])
             ->andFilterWhere(['like', 'desa', $this->desa])
             ->andFilterWhere(['like', 'alamat', $this->alamat])
-            ->andFilterWhere(['like', 'foto', $this->foto])
-            ->andFilterWhere(['like', 'foto_id', $this->foto_id]);
+            ->andFilterWhere(['like', 'foto', $this->foto]);
 
         return $dataProvider;
     }

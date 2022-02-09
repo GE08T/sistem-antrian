@@ -10,6 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Kategori Pelayanan', 'url' => ['in
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="kategori-pelayanan-create">
+<div>
     <div class="card card-outline card-primary">
         <h1 class="mx-auto"><?= Html::encode($this->title) ?></h1>
 
@@ -19,4 +20,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ]) ?>
         </div>`
     </div>
+</div>
 </div>

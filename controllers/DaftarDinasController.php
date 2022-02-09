@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\base\DaftarDinas;
 use app\models\search\DaftarDinasSearch;
 use yii\web\Controller;
+use yii\web\UploadedFile;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -50,10 +52,12 @@ class DaftarDinasController extends Controller
     {
         $searchModel = new DaftarDinasSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
+        $data = DaftarDinas::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'daftarDinas' => $data,
         ]);
     }
 
@@ -80,13 +84,22 @@ class DaftarDinasController extends Controller
         $model = new DaftarDinas();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post()) ) {
+
+                $nama = Yii::$app->security->generateRandomString(12);
+                $foto = UploadedFile::getInstance($model, 'foto');
+                if($model->validate()) {
+                    $model->save();
+                    if(!empty($foto)) {
+                        $foto->saveAs(Yii::getAlias('@app/web/') . 'upload/' . $nama . '.' . $foto->extension);
+                        $model->foto = $nama . '.' . $foto->extension;
+                        $model->save();
+                    }
+                }
+                ($model->save());
                 return $this->redirect(['view', 'id' => $model->id]);
             }
-        } else {
-            $model->loadDefaultValues();
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -103,8 +116,25 @@ class DaftarDinasController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) ) {
+
+                $data = $this->findModel($id);
+                unlink(Yii::getAlias('@app/web/') . 'upload/' . $data->foto);
+
+                $nama = Yii::$app->security->generateRandomString(12);
+                $foto = UploadedFile::getInstance($model, 'foto');
+                if($model->validate()) {
+                    $model->save();
+                    if(!empty($foto)) {
+                        $foto->saveAs(Yii::getAlias('@app/web/') . 'upload/' . $nama . '.' . $foto->extension);
+                        $model->foto = $nama . '.' . $foto->extension;
+                        $model->save();
+                    }
+                }
+                ($model->save());
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [
@@ -121,6 +151,9 @@ class DaftarDinasController extends Controller
      */
     public function actionDelete($id)
     {
+        // $this->findModel($id)->delete();
+        $data = $this->findModel($id);
+        unlink(Yii::getAlias('@app/web/') . 'upload/' . $data->foto);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -141,4 +174,5 @@ class DaftarDinasController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }
