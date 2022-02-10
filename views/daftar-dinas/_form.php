@@ -3,7 +3,8 @@
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\arrayHelper;
-use app\models\base\kategoriPelayanan;
+use app\models\base\KategoriPelayanan;
+use app\models\base\Role;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\base\DaftarDinas */
@@ -15,15 +16,17 @@ use app\models\base\kategoriPelayanan;
     <?php $form = ActiveForm::begin(
         ['options' => ['enctype' => 'multipart/form-data']]
     ); ?>
-        <div class="row">
+        <div class="row"> 
             <div class="col-sm-12 col-md-3 col-lg-3">
                 <?= $form->field($model, 'id_kategori_plyn')->dropDownList(
-                    arrayHelper::map(kategoriPelayanan::find()->all(),'id','nama_kategori',),['prompt' => 'Pilih Kategori'],
-                ) ?>
+                    arrayHelper::map(kategoriPelayanan::find()->all(),'id', 'nama_kategori',),['prompt' => 'Pilih Kategori'],) 
+                ?>
             </div>
             
             <div class="col-sm-12 col-md-3 col-lg-3">
-                <?= $form->field($model, 'id_role')->textInput() ?>
+                <?= $form->field($model, 'id_role')->dropDownList(
+                    arrayHelper::map(Role::find()->all(),'item_name', 'item_name',),['prompt' => 'Pilih Role'],)
+                ?>
             </div>
             
             <div class="col-sm-12 col-md-3 col-lg-3">

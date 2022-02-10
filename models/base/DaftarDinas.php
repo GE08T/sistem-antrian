@@ -44,9 +44,9 @@ class DaftarDinas extends \yii\db\ActiveRecord
     {
         return [
             [['id_kategori_plyn', 'id_role', 'jam_buka_dinas', 'jam_tutup_dinas', 'nama_dinas', 'no_telp', 'provinsi', 'kabupaten_kota', 'kecamatan', 'desa', 'alamat', 'jam_buka_antrian', 'jam_tutup_antrian'], 'required'],
-            [['id_kategori_plyn', 'id_role'], 'integer'],
+            [['id_kategori_plyn'], 'integer'],
             [['jam_buka_dinas', 'jam_tutup_dinas', 'jam_buka_antrian', 'jam_tutup_antrian'], 'safe'],
-            [['alamat'], 'string'],
+            [['alamat', 'id_role'], 'string'],
             [['nama_dinas', 'provinsi', 'kabupaten_kota', 'kecamatan', 'desa'], 'string', 'max' => 50],
             [['no_telp'], 'string', 'max' => 15],
             [['foto'], 'file', 'skipOnEmpty' => true,'extensions' => 'jpg, png, jpeg',],
@@ -98,13 +98,15 @@ class DaftarDinas extends \yii\db\ActiveRecord
         return $this->hasMany(Layanan::className(), ['id_dinas' => 'id']);
     }
 
-    /**
-     * Gets query for [[Assignment]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAssignment()
+    public function getRole()
     {
-        return $this->hasOne(Assignment::className(), ['item_name' => 'username']);
+        return $this->hasOne(Role::className(), ['id' => 'item_name']);
     }
+
+
+    // public static function getDb()
+    // {
+    //     $db = Yii::$app->db;
+    //     $role = $db->createCommand('SELECT item_name FROM auth_assignment')->queryColumn();
+    // }
 }

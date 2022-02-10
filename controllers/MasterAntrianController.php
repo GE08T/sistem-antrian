@@ -3,23 +3,32 @@
 namespace app\controllers;
 
 use Yii;
+use app\models;
+use app\models\base\KategoriPelayanan;
+use app\models\base\DaftarDinas;
 
 class MasterAntrianController extends \yii\web\Controller
 {
     
     public function actionKategori()
     {
-        $kategori = \app\models\base\KategoriPelayanan::find()->all();
+        $kategori = KategoriPelayanan::find()->all();
 
         $this->layout = "main-antri";
         return $this->render('kategori', ['kategori' => $kategori]);
     }
 
-    public function actionDinas()
+    public function actionDinas($id)
     {
-        $dinas = \app\models\base\DaftarDinas::find()->all();
+        $dinas = DaftarDinas::find()->where(['id_kategori_plyn' => $id])->all();
 
         $this->layout = "main-antri";
-        return $this->render('Dinas');
+        return $this->render('Dinas', ['dinas' => $dinas]);
+    }
+
+    public function actionLayanan()
+    {
+        $this->layout = "main-antri";
+        return $this->render('layanan');
     }
 }

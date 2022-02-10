@@ -5,13 +5,13 @@ namespace app\models\base;
 use Yii;
 
 /**
- * This is the model class for table "role".
+ * This is the model class for table "auth_assignment".
  *
- * @property int $id
- * @property string $name
+ * @property string $item_name
+ * @property string $user_id
+ * @property int|null $created_at
  *
- * @property RoleMenu[] $roleMenus
- * @property User[] $users
+ * @property AuthItem $itemName
  */
 class Role extends \yii\db\ActiveRecord
 {
@@ -20,7 +20,7 @@ class Role extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'role';
+        return 'auth_assignment';
     }
 
     /**
@@ -29,8 +29,11 @@ class Role extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
-            [['name'], 'string', 'max' => 50],
+            [['item_name', 'user_id'], 'required'],
+            [['created_at'], 'integer'],
+            [['item_name', 'user_id'], 'string', 'max' => 64],
+            [['item_name', 'user_id'], 'unique', 'targetAttribute' => ['item_name', 'user_id']],
+            [['item_name'], 'exist', 'skipOnError' => true, 'targetClass' => AuthItem::className(), 'targetAttribute' => ['item_name' => 'name']],
         ];
     }
 
@@ -40,18 +43,20 @@ class Role extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
+            'item_name' => 'Item Name',
+            'user_id' => 'User ID',
+            'created_at' => 'Created At',
         ];
     }
 
     /**
-     * Gets query for [[Users]].
+     * Gets query for [[ItemName]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getUsers()
+    public function getItemName()
     {
-        return $this->hasMany(\app\models\User::className(), ['role_id' => 'id']);
+        return $this->hasOne(AuthItem::className(), ['name' => 'item_name']);
     }
+
 }
