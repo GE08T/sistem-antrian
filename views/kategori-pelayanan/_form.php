@@ -14,8 +14,6 @@ use yii\bootstrap4\ActiveForm;
         
         <?= $form->field($model, 'nama_kategori')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'icon')->textInput(['maxlength' => false, ]) ?>
-
         <span><?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?></span>
 
     </div>

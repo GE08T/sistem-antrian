@@ -1,5 +1,5 @@
 <?php
-use yii\widgets\Breadcrumbs;
+use yii\bootstrap4\Breadcrumbs;
 use app\widgets\Alert;
 
 /* @var $this \yii\web\View */

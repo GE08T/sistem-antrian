@@ -29,9 +29,8 @@ class KategoriPelayanan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nama_kategori', 'icon'], 'required'],
+            [['nama_kategori'], 'required'],
             [['nama_kategori'], 'string', 'max' => 100],
-            [['icon'], 'string', 'max' => 15],
         ];
     }
 
@@ -43,7 +42,6 @@ class KategoriPelayanan extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'nama_kategori' => 'Nama Kategori',
-            'icon' => 'Icon',
         ];
     }
 

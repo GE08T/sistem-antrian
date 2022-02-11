@@ -18,7 +18,7 @@ $this->title = 'Pilih Kategori';
                 <?php
                 foreach ($kategori as $r) {
                 ?>
-                    <div class="card bg-light col-sm-3 offset-md-1" style="margin: 1rem">
+                    <div class="card col-sm-3 offset-md-1" style="margin: 1rem">
                         <div class="card-body text-center">
                             <a href="<?= Url::toRoute(['master-antrian/dinas', 'id' => $r->id]) ?>"><?= $r->nama_kategori ?></a>
                         </div>

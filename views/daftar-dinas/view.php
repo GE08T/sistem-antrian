@@ -12,6 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="daftar-dinas-view">
+<div class="col-lg-12 mx-auto py-3">
     <div class="card card-outline card-primary">
         <h1 class="mx-auto"><?= Html::encode($this->title) ?></h1>
     
@@ -55,4 +56,5 @@ $this->params['breadcrumbs'][] = $this->title;
             </p>
         </div>
     </div>
+</div>
 </div>

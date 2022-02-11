@@ -6,6 +6,7 @@ use Yii;
 use app\models;
 use app\models\base\KategoriPelayanan;
 use app\models\base\DaftarDinas;
+use app\models\base\Layanan;
 
 class MasterAntrianController extends \yii\web\Controller
 {
@@ -26,9 +27,11 @@ class MasterAntrianController extends \yii\web\Controller
         return $this->render('Dinas', ['dinas' => $dinas]);
     }
 
-    public function actionLayanan()
+    public function actionLayanan($id)
     {
+        $layanan = Layanan::find()->where(['id_dinas' => $id])->all();
+
         $this->layout = "main-antri";
-        return $this->render('layanan');
+        return $this->render('layanan', ['layanan' => $layanan]);
     }
 }

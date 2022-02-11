@@ -13,8 +13,8 @@ $this->title = 'Kategori Pelayanan';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="kategori-pelayanan-index">
-    
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="col-lg-12 mx-auto py-3">
+    <h1 class="mb-4"><?= Html::encode($this->title) ?></h1>
 
     <div class="card card-outline card-primary">
         <div class="mt-3 ml-3">
@@ -30,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     // 'id',
                     'nama_kategori',
-                    'icon',
                     [
                         'class' => ActionColumn::className(),
                         'urlCreator' => function ($action, app\models\base\KategoriPelayanan $model, $key, $index, $column) {
@@ -41,5 +40,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ]); ?>
         </div>
     </div>
-
+</div>
 </div>

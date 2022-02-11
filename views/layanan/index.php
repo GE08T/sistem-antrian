@@ -13,8 +13,8 @@ $this->title = 'Layanan';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="layanan-index"> 
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="col-lg-12 mx-auto py-3">
+    <h1 class="mb-4"><?= Html::encode($this->title) ?></h1>
 
     <div class="card card-outline card-primary">
         <div class="mt-3 ml-3">
@@ -44,4 +44,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ]); ?>
         </div>
     </div>
+</div>
 </div>

@@ -18,7 +18,7 @@ class KategoriPelayananSearch extends KategoriPelayanan
     {
         return [
             [['id'], 'integer'],
-            [['nama_kategori', 'icon'], 'safe'],
+            [['nama_kategori'], 'safe'],
         ];
     }
 
@@ -61,8 +61,7 @@ class KategoriPelayananSearch extends KategoriPelayanan
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'nama_kategori', $this->nama_kategori])
-            ->andFilterWhere(['like', 'icon', $this->icon]);
+        $query->andFilterWhere(['like', 'nama_kategori', $this->nama_kategori]);
 
         return $dataProvider;
     }

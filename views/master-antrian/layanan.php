@@ -1,41 +1,49 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\arrayHelper;
-use app\models\base\daftarDinas;
-use yii\bootstrap4\ActiveForm;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-$this->title = 'Tambah Layanan';
+$this->title = 'Layanan';
 ?>
-<div class="master-antrian-dinas">
+<div class="master-antrian-layanan">
     <div class="col-lg-12 mx-auto">
 
     <div class="card card-outline card-primary pb-4">
         <h2 class="d-flex justify-content-center mb-3"><?= Html::encode($this->title) ?></h2>
+            <div class="row justify-content-center">    
 
-        <div class="justify-content-center row">
-            <div class="row justify-content-center">
-                <?php $form = ActiveForm::begin(); ?>
-
-                    <?= $form->field($model, 'id_dinas')->dropDownList(
-                        arrayHelper::map(daftarDinas::find()->all(),'id','nama_dinas',),['prompt' => 'Pilih Dinas'],
-                    ) ?>
-
-                    <?= $form->field($model, 'nama_layanan')->textInput(['maxlength' => true]) ?>
-
-                    <?= $form->field($model, 'max_antrian')->textInput() ?>
-
-                    <?= $form->field($model, 'kode_antrian')->textInput(['maxlength' => true]) ?>
+                <?php
+                foreach ($layanan as $r) {
+                ?>
+                    <div class="col-sm-8 offset-md-1" style="margin: 1rem">
+                        <div class="card-body text-center">
+                            <table class="table table-hover">
+                                <thead class="thead-light">
+                                    <tr>
+                                    <th scope="col">Nama Layanan</th>
+                                    <th scope="col">Kode Antrian</th>
+                                    <th scope="col">Maks Antrian</th>
+                                    <th scope="col">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <td><?= $r->nama_layanan ?></td>
+                                    <td><?= $r->kode_antrian ?></td>
+                                    <td><?= $r->max_antrian ?></td>
+                                    <td><i class="fas fa-plus-circle mx-auto my-auto"style="font-size: 25px"></i></td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-
-
-                    <span><?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?></span>
-
-                <?php ActiveForm::end(); ?>
-            </div>
+                <?php
+                }
+                ?>
+                
         </div>
     </div>
 
