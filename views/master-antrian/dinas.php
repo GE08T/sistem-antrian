@@ -15,17 +15,21 @@ $this->title = 'Daftar Dinas';
         <h2 class="d-flex justify-content-center mb-3"><?= Html::encode($this->title) ?></h2>
             <div class="row justify-content-center">    
 
-                <?php
-                foreach ($dinas as $r) {
-                ?>
+            <?php if (count($dinas) > 0) {?>
+                <?php foreach ($dinas as $r) { ?>
                     <div class="card col-sm-3 offset-md-1" style="margin: 1rem">
                         <div class="card-body text-center">
                             <a href="<?= Url::toRoute(['master-antrian/layanan', 'id' => $r->id]) ?>"><?= $r->nama_dinas ?></a>
                         </div>
                     </div>
-                <?php
-                }
-                ?>
+                <?php } ?>
+            <?php }else { ?> 
+                <div class="card col-sm-3 offset-md-1" style="margin: 1rem">
+                    <div class="card-body text-center">
+                        <h4>Maaf Daftar Dinas Belum ada</h4>
+                    </div>
+                </div>
+            <?php } ?>
                 
         </div>
     </div>

@@ -33,7 +33,7 @@ use yii\helpers\Html;
             <?= Html::a('<i class="nav-icon fas fa-tachometer-alt"></i><p> Dashboard</p>', ['/site/index'], ['class' => 'nav-link']) ?>
           </li>
           
-        <li class="nav-item menu-is-opening menu-open">
+        <li class="nav-item has-treeview">
           <?= Html::a('<i class="nav-icon fas fa-user-cog"></i><p> Master User <i class="fas fa-angle-left right"></i></p>', [''], ['class' => 'nav-link']) ?>
             <ul class="nav nav-treeview">
               <li class="nav-item">
@@ -46,7 +46,7 @@ use yii\helpers\Html;
             </ul>
         </li>
 
-        <li class="nav-item menu-is-opening menu-open">
+        <li class="nav-item has-treeview">
           <?= Html::a('<i class="nav-icon fas fa-cash-register"></i><p>Master Loket <i class="fas fa-angle-left right"></i></p>', [''], ['class' => 'nav-link']) ?>
             <ul class="nav nav-treeview">
               <li class="nav-item">
