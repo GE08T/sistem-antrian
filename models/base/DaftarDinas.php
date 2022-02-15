@@ -103,10 +103,4 @@ class DaftarDinas extends \yii\db\ActiveRecord
         return $this->hasOne(Role::className(), ['id' => 'item_name']);
     }
 
-
-    // public static function getDb()
-    // {
-    //     $db = Yii::$app->db;
-    //     $role = $db->createCommand('SELECT item_name FROM auth_assignment')->queryColumn();
-    // }
 }

@@ -19,6 +19,7 @@ $this->title = 'Daftar Dinas';
                 <?php foreach ($dinas as $r) { ?>
                     <div class="card col-sm-3 offset-md-1" style="margin: 1rem">
                         <div class="card-body text-center">
+                            <?= Html::img(['@web/upload', 'id' => $r->id], ['class'=>'img-responsive']);?>
                             <a href="<?= Url::toRoute(['master-antrian/layanan', 'id' => $r->id]) ?>"><?= $r->nama_dinas ?></a>
                         </div>
                     </div>

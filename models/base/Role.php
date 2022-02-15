@@ -43,7 +43,7 @@ class Role extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'item_name' => 'Item Name',
+            'item_name' => 'Role',
             'user_id' => 'User ID',
             'created_at' => 'Created At',
         ];
@@ -57,6 +57,11 @@ class Role extends \yii\db\ActiveRecord
     public function getItemName()
     {
         return $this->hasOne(AuthItem::className(), ['name' => 'item_name']);
+    }
+
+    public function getDaftarDinas()
+    {
+        return $this->hasMany(DaftarDinas::className(), ['item_name' => 'id']);
     }
 
 }

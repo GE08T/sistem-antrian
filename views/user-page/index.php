@@ -7,6 +7,7 @@ use\yii\helpers\Html;
 $this->title = 'Antri Kuy';
 ?>
 <div class="user-page-index">
+    <div class="col-lg-12 mx-auto">
 
     <div class="text-center">
         <div class="card card-outline card-primary mx-auto">
@@ -37,5 +38,6 @@ $this->title = 'Antri Kuy';
     </div>
     </div>
 
+    </div>
 </div>
 

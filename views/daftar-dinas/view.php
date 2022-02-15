@@ -14,15 +14,15 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="daftar-dinas-view">
 <div class="col-lg-12 mx-auto py-3">
     <div class="card card-outline card-primary">
-        <h1 class="mx-auto"><?= Html::encode($this->title) ?></h1>
+        <h1 class="mx-auto"><?= Html::encode($this->title) ?></h1> 
     
         <div class="card-body">
             <?= DetailView::widget([
                 'model' => $model,
                 'attributes' => [
                     'id',
-                    'id_kategori_plyn',
-                    'id_role',
+                    'kategoriPlyn.nama_kategori',
+                    'role.item_name',
                     'jam_buka_dinas',
                     'jam_tutup_dinas',
                     'nama_dinas',

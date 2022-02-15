@@ -15,7 +15,6 @@ class MasterAntrianController extends \yii\web\Controller
     {
         $kategori = KategoriPelayanan::find()->all();
 
-        $this->layout = "main-antri";
         return $this->render('kategori', ['kategori' => $kategori]);
     }
 
@@ -23,7 +22,6 @@ class MasterAntrianController extends \yii\web\Controller
     {
         $dinas = DaftarDinas::find()->where(['id_kategori_plyn' => $id])->all();
 
-        $this->layout = "main-antri";
         return $this->render('Dinas', ['dinas' => $dinas]);
     }
 
@@ -31,7 +29,16 @@ class MasterAntrianController extends \yii\web\Controller
     {
         $layanan = Layanan::find()->where(['id_dinas' => $id])->all();
 
-        $this->layout = "main-antri";
-        return $this->render('layanan', ['layanan' => $layanan]);
+        return $this->render('layanan\index', ['layanan' => $layanan]);
+    }
+
+    public function actionView()
+    {
+        return $this->render('layanan\view');
+    }
+
+    public function actionUpdate()
+    {
+        return $this->render('layanan\view');
     }
 }

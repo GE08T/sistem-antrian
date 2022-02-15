@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -12,8 +13,10 @@ $this->title = 'Layanan';
 
     <div class="card card-outline card-primary pb-4">
         <h2 class="d-flex justify-content-center mb-2"><?= Html::encode($this->title) ?></h2>
-            <div class="justify-content-center">    
 
+        <div class="mt-3 ml-4"><?= Html::a('<i class="fas fa-plus"></i> Tambah Layanan', ['/layanan/create'], ['class' => 'btn btn-success']) ?></div>
+
+            <div class="justify-content-center">    
                 <div class="card-body text-center">
                     <table class="table table-hover">
                         <thead class="thead-light">
@@ -33,8 +36,8 @@ $this->title = 'Layanan';
                                 <td><?= $r->kode_antrian; ?></td>
                                 <td><?= $r->max_antrian; ?></td>
                                 <td>
-                                    <span><?= Html::a('Update')?></span>
-                                    <span><?= Html::a('Delete')?></span>
+                                    <a href="<?= Url::toRoute(['layanan/update', 'id' => $r->id]) ?>"><i class="fas fa-pen"></i></a>
+                                    <span><?= Html::a('<i class="fas fa-eye"></i>', ['view'])?></span>
                                 </td>
                             </tr>
                             <?php } ?>                
