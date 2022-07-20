@@ -1,0 +1,3 @@
+Yang Perlu DiRevisi
+- Fungsi Pergantian Antrian Tolong Diperbaiki
+- Lebih Dihidupkan lagi
